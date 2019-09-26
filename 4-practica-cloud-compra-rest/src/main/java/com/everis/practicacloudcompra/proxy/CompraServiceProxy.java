@@ -9,10 +9,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.everis.practicacloudcompra.response.CompraResponse;
 
 //nombre de la aplicacion a la cual se conecta este servicio, en este caso es a inventario(servicio)
+//en invetario properties tiene ese noombre 
 // Se debe llamar igual que el propierties de inventario name
 @FeignClient(name="PRACTICA-CLOUD-INVENTARIO-REST")
 @RibbonClient(name = "PRACTICA-CLOUD-INVENTARIO-REST")
 public interface CompraServiceProxy {
+	
+	//Metodos Creados en la  aplicacion de inventario, los sobre escribimos
 	
 	@GetMapping("/consultarInventario/producto/{id}")
 	public CompraResponse retrieveInventario(@PathVariable int id);
