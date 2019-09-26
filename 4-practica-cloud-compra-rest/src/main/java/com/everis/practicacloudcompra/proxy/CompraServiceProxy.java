@@ -24,4 +24,6 @@ public interface CompraServiceProxy {
 	@PostMapping("/decrementar/producto/{id}/cantidad/{cantidad}")
 	public CompraResponse retrieveDecrementar(@PathVariable int id, @PathVariable int cantidad);
 
+	
+	
 }
