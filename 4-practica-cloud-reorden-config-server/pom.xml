@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.everis</groupId>
-	<artifactId>1-practica-cloud-reorden-config-server</artifactId>
+	<artifactId>4-practica-cloud-reorden-config-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>1-practica-cloud-reorden-config-server</name>
+	<name>4-practica-cloud-reorden-config-server</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
