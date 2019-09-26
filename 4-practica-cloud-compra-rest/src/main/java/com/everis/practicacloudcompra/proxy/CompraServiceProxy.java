@@ -13,6 +13,8 @@ import com.everis.practicacloudcompra.response.CompraResponse;
 // Se debe llamar igual que el propierties de inventario name
 @FeignClient(name="PRACTICA-CLOUD-INVENTARIO-REST")
 @RibbonClient(name = "PRACTICA-CLOUD-INVENTARIO-REST")
+
+// url=https://whatzmeapi.com:10501
 public interface CompraServiceProxy {
 	
 	//Metodos Creados en la  aplicacion de inventario, los sobre escribimos
@@ -20,7 +22,7 @@ public interface CompraServiceProxy {
 	@GetMapping("/consultarInventario/producto/{id}")
 	public CompraResponse retrieveInventario(@PathVariable int id);
 	
-	
+	//  /rest/api/enviar-mensaje?877be9b47ac39dcbdac80d4fff18e554352abc13
 	@PostMapping("/decrementar/producto/{id}/cantidad/{cantidad}")
 	public CompraResponse retrieveDecrementar(@PathVariable int id, @PathVariable int cantidad);
 
