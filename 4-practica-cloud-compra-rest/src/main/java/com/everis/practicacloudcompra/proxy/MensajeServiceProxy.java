@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.everis.practicacloudcompra.model.MensajeWhatsApp;
-import com.everis.practicacloudcompra.response.CompraResponse;
+import com.everis.practicacloudcompra.response.MensajeResponse;
 
 @FeignClient(value="MensajeWhats" ,url="https://whatzmeapi.com:10501")
 public interface MensajeServiceProxy {

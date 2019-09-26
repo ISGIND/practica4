@@ -12,10 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.everis.practicacloudcompra.model.Compra;
+import com.everis.practicacloudcompra.model.MensajeWhatsApp;
 import com.everis.practicacloudcompra.proxy.CompraServiceProxy;
+import com.everis.practicacloudcompra.proxy.MensajeServiceProxy;
 import com.everis.practicacloudcompra.repository.CompraRepository;
 import com.everis.practicacloudcompra.response.CompraResponse;
 import com.everis.practicacloudcompra.response.InventarioResponse;
+import com.everis.practicacloudcompra.response.MensajeResponse;
 import com.everis.practicacloudcompra.service.CompraService;
 
 @RestController
@@ -29,6 +32,9 @@ public class CompraController {
 	private CompraServiceProxy compraServiceProxy;
 	
 	@Autowired
+	private MensajeServiceProxy mensajeServiceProxy;
+	
+	@Autowired
 	private CompraService compraservice;
 
 	@GetMapping ("/consultarInventario/producto/{id}/cantidad/{cantidad}")
@@ -36,6 +42,7 @@ public class CompraController {
 			@PathVariable int cantidad) {
 			
 		CompraResponse response = new CompraResponse();
+		MensajeResponse msjresponse = new MensajeResponse();
 		
 		Compra compra = new Compra();
 		try {
@@ -54,6 +61,10 @@ public class CompraController {
 				    compra.setCantidad(cantidad);
 					compraservice.insertar(compra);
 			 	}else {
+			 		MensajeWhatsApp mensaje = new MensajeWhatsApp();
+			 		mensaje.setNumero("525613382967");
+			 		mensaje.setMensaje("No se pudo realizar tu compra");
+			 		msjresponse = mensajeServiceProxy.retrieveMensaje(mensaje);
 				response.setSuccessful(false);
 				response.setMessage("no se pudo intentalo mas tarde");
 				compra.setInventario(response.getValue());
