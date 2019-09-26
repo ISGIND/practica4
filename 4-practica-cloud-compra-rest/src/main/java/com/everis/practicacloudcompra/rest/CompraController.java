@@ -61,15 +61,15 @@ public class CompraController {
 				    compra.setCantidad(cantidad);
 					compraservice.insertar(compra);
 			 	}else {
-			 		MensajeWhatsApp mensaje = new MensajeWhatsApp();
-			 		mensaje.setNumero("525613382967");
-			 		mensaje.setMensaje("No se pudo realizar tu compra");
-			 		msjresponse = mensajeServiceProxy.retrieveMensaje(mensaje);
 				response.setSuccessful(false);
 				response.setMessage("no se pudo intentalo mas tarde");
 				compra.setInventario(response.getValue());
 			 	}
 		 }else {
+			 	MensajeWhatsApp mensaje = new MensajeWhatsApp();
+		 		mensaje.setNumero("525575485113");
+		 		mensaje.setMensaje("No se pudo realizar tu compra");
+		 		msjresponse = mensajeServiceProxy.retrieveMensaje(mensaje);
 			 response.setSuccessful(false);
 			 response.setMessage("No se puede comprar");
 		 }			
